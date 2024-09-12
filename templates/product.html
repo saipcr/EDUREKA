@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% comment %} {% load static %} {% endcomment %}
+{% load static %}
 {%block body%}
 {% for product in data %}
     <div>
@@ -17,9 +17,11 @@
             <div class="mb-3">
                 {{product.price}}
             </div>
+            <div>
+                <img src="{% static product.Name %}" height="200" width="300">
+            </div>
             
-            
-            <button type="submit" class="btn btn-primary">ADD</button></br></br>
+            <button type="submit" >ADD</button></br></br>
         </form>
         
     </div>
@@ -27,6 +29,6 @@
 {% endfor %}
 <form method="POST" action="/checkout">
     {% csrf_token %}
-    <button type="Submit" class="btn btn-primary">Checkout</button>
+    <button type="Submit" >Checkout</button>
 </form>
 {%endblock body%}
