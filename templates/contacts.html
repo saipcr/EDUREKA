@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{%block body%}
+Contact Us
+</br>
+<form method="POST" action="/contacts">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for ="Name" class ="form-label">Name</label>
+        <input required type="text" class ="form-label" name ="Name" id="Name" aria-describedby='emailHelp'></br>
+    </div>
+    <div class="mb-3">
+        <label for ="Email" class ="form-label">Email</label>
+        <input required type="email" class ="form-label" name ="Email" id="Email" aria-describedby='emailHelp'></br>
+    </div>
+    <div class="mb-3">
+        <label for ="Message" class ="form-label">Message</label></br>
+        
+        <textarea name="Message" cols="40" rows="5"></textarea>
+    </div>
+        
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{%endblock body%}

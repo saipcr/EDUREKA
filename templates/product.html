@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% comment %} {% load static %} {% endcomment %}
+{%block body%}
+{% for product in data %}
+    <div>
+        
+        
+        
+        <form method="POST" action="/cart/{{product.Name}}">
+            {% csrf_token %}
+            <div class="mb-3">
+                {{product.Name}}
+            </div>
+            <div class="mb-3">
+                {{product.Description}}
+            </div>
+            <div class="mb-3">
+                {{product.price}}
+            </div>
+            
+            
+            <button type="submit" class="btn btn-primary">ADD</button></br></br>
+        </form>
+        
+    </div>
+
+{% endfor %}
+<form method="POST" action="/checkout">
+    {% csrf_token %}
+    <button type="Submit" class="btn btn-primary">Checkout</button>
+</form>
+{%endblock body%}
